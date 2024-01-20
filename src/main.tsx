@@ -1,13 +1,15 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-
-import { AppDataContextProvider } from "./context/index";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import "./assets/scss/style.scss";
 
+import App from "./App.tsx";
+import { AppDataContextProvider } from "./context/index";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <AppDataContextProvider>
-    <App />
-  </AppDataContextProvider>
+    <AppDataContextProvider>
+        <Router>
+            <App />
+        </Router>
+    </AppDataContextProvider>
 );

@@ -1,0 +1,9 @@
+@use "./colors" as *;
+
+@mixin login_transparent_buttons {
+    background: transparent;
+    border: 0.1rem solid transparent;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    color: $primary_light;
+}

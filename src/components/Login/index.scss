@@ -1,0 +1,169 @@
+@import "../../assets/scss/abstracts/_index.scss";
+
+.login {
+    display: grid;
+    grid-template-columns: 52.5rem auto;
+    height: 100vh;
+
+    img {
+        height: 100vh;
+        width: 32.7rem;
+        position: fixed;
+        aspect-ratio: auto;
+    }
+
+    .login_image_container {
+        position: relative;
+        height: 100vh;
+        width: 525px;
+        aspect-ratio: auto;
+    }
+
+    .login_image_container-text {
+        position: absolute;
+        width: 32.7rem;
+        height: 100%;
+        background-color: #67a3bfdc;
+        z-index: 1;
+        display: grid;
+        place-content: center;
+        font-size: 2.5rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+    }
+
+    .login_form_contnainer {
+        display: grid;
+        place-content: center;
+        margin-right: auto;
+        margin-bottom: 6rem;
+        width: 25rem;
+        overflow-y: none;
+    }
+
+    .login_form_container_new_user {
+        margin-top: 1rem;
+
+        .register_here_btn {
+            @include login_transparent_buttons();
+        }
+
+        .go_back_btn {
+            @include login_transparent_buttons();
+        }
+    }
+
+    .login_form {
+        margin-top: 2rem;
+        gap: 0.4rem;
+        display: grid;
+
+        label {
+            font-size: 1.3rem;
+        }
+
+        input {
+            height: 2.5rem;
+            border: 0.1rem solid transparent;
+            padding: 0.4rem;
+            border-radius: 0.4rem;
+        }
+    }
+
+    .login_buttons {
+        margin-top: 2rem;
+        display: grid;
+        gap: 1rem;
+        width: 100%;
+
+        .login_buttons_sign_up {
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            height: 50px;
+            position: relative;
+            border: none;
+            font-size: 18px;
+            transition: color 0.5s, transform 0.2s, background-color 0.2s;
+            outline: none;
+            border-radius: 3px;
+            border: 3px solid transparent;
+
+            &:active {
+                transform: translateY(3px);
+            }
+
+            &::after,
+            &::before {
+                border-radius: 3px;
+            }
+        }
+
+        .login_buttons_sign_up_hover {
+            background-color: transparent;
+            color: darken($white, 10%);
+            border: none;
+            overflow: hidden;
+            box-shadow: none;
+
+            &:hover {
+                color: $white;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 98%;
+                height: 90%;
+                border: 1px solid darken($white, 10%);
+                transition: opacity 0.3s, border 0.3s;
+            }
+
+            &:hover::before {
+                opacity: 0;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 400px;
+                height: 200px;
+                background-color: lighten($primary, 10%);
+                border-color: transparent;
+                border-radius: 50%;
+                transform: translate(-10px, -70px) scale(0.1);
+                opacity: 0;
+                z-index: -1;
+                transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+            }
+
+            &:hover::after {
+                opacity: 1;
+                transform-origin: 100px 100px;
+                transform: scale(1) translate(-10px, -70px);
+            }
+        }
+
+        .text_or {
+            width: 100%;
+            text-align: center;
+            border-bottom: 0.1rem solid $primary_light;
+            line-height: 0.01rem;
+            margin: 1rem 0 1rem;
+            color: $yellow;
+            span {
+                background: $black;
+                padding: 0 10px;
+            }
+        }
+
+        .login_with_google {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.4rem;
+        }
+    }
+}
